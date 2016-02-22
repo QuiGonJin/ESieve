@@ -3,7 +3,7 @@ Author: Kevin Chen
 
 Ver: 1.0
 
-Target: iPhone 6
+Target: iPhone
 
 iOS SDK 8.4
 
@@ -18,6 +18,8 @@ Details:
     Built ontop of XCode Ver.6.4's Swift Single View Application. 
   
     All implementation specific to this app is inside ViewController.swift
+    
+    Ideal device is iPhone 6
 
   Usage On load:
     
