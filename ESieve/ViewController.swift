@@ -19,7 +19,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .whiteColor()
+        view.backgroundColor = UIColor.darkGrayColor()
         
         //Detect all taps on screen
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleScreenTap:"))
@@ -111,16 +111,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             nameLabel.text = String(index)
         } else {
             var dim = self.collectionView!.frame.size.width/10
-            let nameLabel = UILabel(frame: CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(dim,dim) ) )
-            nameLabel.tag = 100;
+            let nameLabel = UILabel(frame: CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(dim - 6,dim) ) )
+            nameLabel.backgroundColor = UIColor.clearColor()
+            nameLabel.center = CGPointMake(dim/2, dim/2)
+            nameLabel.tag = 100
             nameLabel.text = String(primeValues[indexPath.item])
+            nameLabel.textColor = UIColor.whiteColor()
             nameLabel.numberOfLines = 1
             nameLabel.adjustsFontSizeToFitWidth = true
             nameLabel.lineBreakMode = NSLineBreakMode.ByClipping
             nameLabel.textAlignment = NSTextAlignment.Center
+            
             cell.addSubview(nameLabel)
         }
-
+        cell.backgroundColor = cellAtIndexIsDark(indexPath) ? UIColor.lightGrayColor():UIColor.grayColor()
         return cell
     }
     
@@ -134,7 +138,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.cellForItemAtIndexPath(indexPath)?.backgroundColor = UIColor.clearColor()
+        collectionView.cellForItemAtIndexPath(indexPath)?.backgroundColor = cellAtIndexIsDark(indexPath) ? UIColor.lightGrayColor():UIColor.grayColor()
     }
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
@@ -146,6 +150,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
     {
         return UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    
+    func cellAtIndexIsDark(path: NSIndexPath)-> Bool {
+        var squareIndex = path.item % 4
+        return (squareIndex == 0 || squareIndex == 2)
     }
     
     //Tap anywhere to put away keypad
