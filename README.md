@@ -1,7 +1,10 @@
 # ESieve
 Author: Kevin Chen
+
 Ver: 1.0
+
 Target: iPhone 6
+
 iOS SDK 8.4
 
 ESieve is a simple iOS calculator to display all prime numbers between 0 and n utilizing Eratosthenes sieve.
