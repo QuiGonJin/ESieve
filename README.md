@@ -6,22 +6,22 @@ iOS SDK 8.4
 
 ESieve is a simple iOS calculator to display all prime numbers between 0 and n utilizing Eratosthenes sieve.
 
-Implementation:
 
+
+Details:
+  Implementation:
   
-  Built ontop of XCode Ver.6.4's Swift Single View Application. 
+    Built ontop of XCode Ver.6.4's Swift Single View Application. 
   
-  All implementation specific to this app is inside ViewController.swift
+    All implementation specific to this app is inside ViewController.swift
 
-Usage:
-
-  On load:
+  Usage On load:
     
     App loads with default n of 150 and displays a collection of numbers from 1 to n
     
     Clicking 'Calculate Primes' will eliminate the composite numbers from the collection
   
-  Custom value:
+  Usage for Custom value:
     
     Tap on the text field labeled 'select N' and enter an integer value for n. (Recommended max value is under 100,000)
     
