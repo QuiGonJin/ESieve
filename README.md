@@ -9,6 +9,7 @@ ESieve is a simple iOS calculator to display all prime numbers between 0 and n u
 
 
 Details:
+
   Implementation:
   
     Built ontop of XCode Ver.6.4's Swift Single View Application. 
